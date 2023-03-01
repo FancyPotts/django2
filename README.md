@@ -5,5 +5,5 @@
 
 
 - To do later after completion of project:
-  -- Deploy on GitHub pages
-  -- Prettify
+  - Deploy on GitHub pages
+  - Prettify
