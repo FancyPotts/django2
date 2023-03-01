@@ -5,8 +5,10 @@
     Detail View
 {% endblock title %}
     
-
 {% block body %}
-    This is where all the deets goes and with an image
+    <h3>Text</h3>
+    {{ object.text }}
+    <h3>Image</h3>
+    <img src="{{ object.image.url }}" style="width: 100%; height: auto;">
 {% endblock body %}
     
