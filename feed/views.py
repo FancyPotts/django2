@@ -4,4 +4,6 @@ class HomePageView(TemplateView):
     template_name = "home.html"
     
     def get_context_data(self, **kwargs):
-        return super().get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
+        context['my_thing'] = "Hello world!! :B This is dynamo!"
+        return context
