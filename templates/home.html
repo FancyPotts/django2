@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load thumbnail %}
 
 {% block title %}Imgeer{% endblock title %}
 
@@ -6,7 +7,9 @@
 {% for post in posts %}
     {{ post.text }}
     <br>
-    {{ post.image }}
+    {% thumbnail post.image "200x200" crop="center" as im %}
+        <img src="{{ im.url }}" width="{{ im.width }}" height="{{im.height}}">
+    {% endthumbnail %}
     <hr>
 {% endfor %}
 {% endblock body %}
