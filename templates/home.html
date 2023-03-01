@@ -4,7 +4,10 @@
 {% block title %}Imgeer{% endblock title %}
 
 {% block body %}
+    <a href="{% url 'feed:post' %}">Add a new post&rarr;</a>
+    <hr>
 {% for post in posts %}
+
     <a href="{% url 'feed:detail' post.id %}" style="display: inline-block;">
         <br>
         {{ post.text }}
