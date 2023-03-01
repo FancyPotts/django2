@@ -6,10 +6,11 @@
 {% endblock title %}
     
 {% block body %}
-    <form method="POST" action="" enctype="multipart/form-data">
+    <form method="POST" action="" enctype="multipart/form-data" class="col-sm-4 offset-4 py-5 ">
+        <h2>Upload an image!</h2>
     {% csrf_token %}
     {{ form.as_p }}
     <div>
-        <button type="submit">Submit Form</button>
+        <button type="submit" class="btn bt-lg btn-dark">Submit Form</button>
     </div>
 {% endblock body %}

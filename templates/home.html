@@ -5,25 +5,29 @@
 
 {% block body %}
 
+<div class="row">
 {% for post in posts %}
-
-    <a href="{% url 'feed:detail' post.id %}" style="display: inline-block;">
-        <br>
-        {{ post.text }}
-        <br>
-        {% thumbnail post.image "200x200" crop="center" as im %}
-        <img src="{{ im.url }}" width="{{ im.width }}" height="{{im.height}}">
-        {% endthumbnail %}
-    </a>
-
-    <div class="card" style="width: 18rem;">
-        <img src="..." class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
+<br>
+    <div class="col-sm-6 col-md-3">
+        <div class="card mb-4">
+            {% thumbnail post.image "300x300" crop="center" as im %}
+            <img src="{{ im.url }}" class="card-img-top" alt="...">
+            {% endthumbnail %}
+            <div class="card-body">
+                <h5 class="card-title">{{ post.text }}</h5>
+                <a href="{% url 'feed:detail' post.id %}" class="btn btn-primary">See details</a>
+            </div>
         </div>
-      </div>
+    </div>
+{% empty %}
+    <div class="col-sm-6 offset-3 text-center py-5 my-5">
+        <h3>
+            Welcome! Oh wait, there were images just a second ago.
+        </h3>
+        <p>Oh well! Want to be the first and add an image?</p>
+        <a href="{% url 'feed:post' %}" class="btn btn-dark">Upload image</a>
+    </div>
 
 {% endfor %}
+</div>
 {% endblock body %}
